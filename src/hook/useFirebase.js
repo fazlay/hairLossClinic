@@ -6,13 +6,15 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   updateProfile,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import initializeAuthentication from '../component/Firebase/firebase.init';
 
 initializeAuthentication();
 
-const useFirebase = () => {
+const useFirebase = (name, email, password) => {
+  
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,14 +33,15 @@ const useFirebase = () => {
 
   //------------------------------------with email password
 
-  const registerNewUser = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
+  const registerNewUser = (name, email, password) => {
+   
+    createUserWithEmailAndPassword(auth, email, password,name)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(name);
         // setError('');
 
-        // setUserName();
+        setUserName(name);
       })
       .catch((error) => {
         console.log(error.message);
@@ -46,12 +49,29 @@ const useFirebase = () => {
       });
   };
 
-  // const setUserName = () => {
-  //   updateProfile(auth.currentUser, { displayName: name })
-  //     .then(result => { })
-  // }
+  const setUserName = (name) => {
+    console.log(name);
+    updateProfile(auth.currentUser, { displayName: name}).then(
+      (result) => {
+        console.log(user);
+      }
+    );
+  };
 
   //------------------------------------with email password
+  //------------------------------------Log INwith email password
+  const processLogin = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        // setError('');
+      })
+      .catch((error) => {
+        // setError(error.message);
+      });
+  };
+  //------------------------------------ Log INwith email password
 
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -77,7 +97,9 @@ const useFirebase = () => {
     isLoading,
     signInUsingGoogle,
     logOut,
+    registerNewUser,
     createUserWithEmailAndPassword,
+    processLogin,
   };
 };
 

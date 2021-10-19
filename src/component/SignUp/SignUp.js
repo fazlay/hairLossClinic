@@ -16,33 +16,35 @@ const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { registerNewUser } = useAuth(name, email, password);
 
-  const registerNewUser = (email, password,event) => {
+  // const registerNewUser = (email, password,event) => {
 
-    console.log('enter the function');
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        // setError('');
+  //   console.log('enter the function');
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //       // setError('');
 
-        // setUserName();
-      })
-      .catch((error) => {
-        console.log(error.message);
-        // setError(error.message);
-      });
-  };
+  //       // setUserName();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //       // setError(error.message);
+  //     });
+  // };
 
-  const handleRegistration = e => {
+  const handleRegistration = (e) => {
     e.preventDefault();
-    console.log(email, password);
-    
-      registerNewUser(email, password);
-    }
+    // console.log(email, password);
+
+    registerNewUser(name,email, password);
+  };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
+    console.log(name);
   };
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
