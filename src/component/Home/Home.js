@@ -5,7 +5,6 @@ import Testimonial from './Testimonial/Testimonial';
 import Slider from './PhotoGallery/PhotoGallery';
 
 const Home = () => {
-  
   return (
     <>
       <Banner></Banner>
@@ -13,11 +12,10 @@ const Home = () => {
         <Services></Services>
       </div>
       <Testimonial></Testimonial>
-      <h1 className="text-center text-3xl font-bold py-2"> Image Gallery</h1>
-      <div className="sm:container">
-      {/* <Slider></Slider> */}
+      <h1 className='text-center text-3xl font-bold py-2'> Image Gallery</h1>
+      <div className='sm:container'>
+        <Slider></Slider>
       </div>
-      
     </>
   );
 };
