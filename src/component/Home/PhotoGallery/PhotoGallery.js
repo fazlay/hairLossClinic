@@ -17,9 +17,9 @@ const images = [
 
 const Slider = () => {
   return (
-    <div className=' flex justify-center '>
+    <div className='flex justify-center'>
      
-      <SimpleImageSlider
+      <SimpleImageSlider 
         width={672}
         height={378}
         images={images}

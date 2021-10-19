@@ -10,7 +10,7 @@ const Card = (props) => {
         <div className='relative w-full h-80 md:h-64 lg:h-44'>
           <img
             src={img}
-            
+            alt="hair Product"
             className='w-full h-full object-center object-cover'
           />
         </div>

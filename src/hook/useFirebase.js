@@ -17,6 +17,7 @@ const useFirebase = (name, email, password) => {
   
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const auth = getAuth();
 
@@ -27,6 +28,10 @@ const useFirebase = (name, email, password) => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         setUser(result.user);
+        setError('');
+      })
+      .catch((error) => {
+        setError(error.message);
       })
       .finally(() => setIsLoading(false));
   };
@@ -35,17 +40,19 @@ const useFirebase = (name, email, password) => {
 
   const registerNewUser = (name, email, password) => {
    
+    setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password,name)
       .then((result) => {
         const user = result.user;
-        // console.log(name);
-        // setError('');
+        
+        setError('');
 
         setUserName(name);
+        window.location.reload();
       })
+      .finally(() => setIsLoading(false))
       .catch((error) => {
-        console.log(error.message);
-        // setError(error.message);
+        setError(error.message);
       });
   };
 
@@ -58,17 +65,17 @@ const useFirebase = (name, email, password) => {
     );
   };
 
-  //------------------------------------with email password
+
   //------------------------------------Log INwith email password
   const processLogin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // setError('');
+        setError('');
       })
       .catch((error) => {
-        // setError(error.message);
+        setError(error.message);
       });
   };
   //------------------------------------ Log INwith email password
@@ -95,6 +102,7 @@ const useFirebase = (name, email, password) => {
   return {
     user,
     isLoading,
+    error,
     signInUsingGoogle,
     logOut,
     registerNewUser,

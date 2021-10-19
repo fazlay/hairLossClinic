@@ -1,8 +1,9 @@
 import {
-  createUserWithEmailAndPassword,
+
   getAuth,
   GoogleAuthProvider,
 } from '@firebase/auth';
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
@@ -16,30 +17,13 @@ const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { registerNewUser } = useAuth(name, email, password);
-
-  // const registerNewUser = (email, password,event) => {
-
-  //   console.log('enter the function');
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user);
-  //       // setError('');
-
-  //       // setUserName();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.message);
-  //       // setError(error.message);
-  //     });
-  // };
+  const { registerNewUser, error } = useAuth(name, email, password);
 
   const handleRegistration = (e) => {
     e.preventDefault();
     // console.log(email, password);
 
-    registerNewUser(name,email, password);
+    registerNewUser(name, email, password);
   };
 
   const handleNameChange = (e) => {
@@ -55,43 +39,63 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h1 className='text-2xl'> This is SignUP Component</h1>
-      <form onSubmit={handleRegistration}>
-        <h1 className='text-3xl'>
-          {' '}
-          Enter Your name{' '}
-          <input
-            type='text'
-            onBlur={handleNameChange}
-            className='form-control'
-            id='inputName'
-            placeholder='Your Name'
-          />
-        </h1>
-        <h1 className='text-3xl'>
-          {' '}
-          Enter Your E-mail{' '}
-          <input
-            className='border-2 form-control'
-            type='email'
-            onChange={handleEmailChange}
-          />
-        </h1>
-        <h1 className='text-3xl'>
-          {' '}
-          Enter Your Password{' '}
-          <input
-            className='border-2 form-control'
-            type='password'
-            onChange={handlePasswordChange}
-          />
-        </h1>
-        <button type='submit'>Submit</button>
-      </form>
-      <p>
-        Already Have an Account <Link to='/login'> log In </Link>
-      </p>
+    <div className=' mt-10 mx-auto w-1/4'>
+      <div>
+        <form onSubmit={handleRegistration}>
+          <div>
+            <label class='block text-md font-light mb-2' for='password'>
+              Full Name
+            </label>
+            <input
+              type='text'
+              onBlur={handleNameChange}
+              className=' w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline form-control form-control'
+              id='inputName'
+              placeholder=' Enter Your Name'
+            />
+          </div>
+
+          <div>
+            <label class='block text-md font-light mb-2' for='password'>
+              E-mail
+            </label>
+            <input
+              className='w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline form-control form-control form-control'
+              type='email'
+              placeholder=' Enter Your Email'
+              onChange={handleEmailChange}
+            />
+          </div>
+          <div>
+            <label class='block text-md font-light mb-2' for='password'>
+              Password
+            </label>
+            <input
+              className='w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline form-control form-control form-control form-control'
+              type='password'
+              placeholder=' Enter Your Password'
+              onChange={handlePasswordChange}
+            />
+          </div>
+
+          <button
+            className='bg-indigo-600 hover:bg-blue-700 text-white font-light py-2 px-6 rounded focus:outline-none focus:shadow-outline mt-5'
+            type='submit'
+          >
+            Sign Up
+          </button>
+        </form>
+        <div className='text-red-600'> {error && error.message}</div>
+        <p className='mb-8 text-sm text-center mt-10'>
+          Already Have an Account{' '}
+          <Link
+            className=' w-full mb-8 text-sm font-bold text-center text-blue-600 hover:text-blue-700'
+            to='/login'
+          >
+            Login
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const LogIn = () => {
   const { signInUsingGoogle } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { processLogin } = useAuth(email, password);
+  const { processLogin, error } = useAuth(email, password);
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -21,42 +21,61 @@ const LogIn = () => {
     setPassword(e.target.value);
   };
   return (
-    <div className='container p-10'>
-      <h1 className='text-2xl'> This is Login Component</h1>
+    <>
+      <div className='container p-10 grid grid-cols-2 '>
+        <div className='text-center'>
+          <button
+            onClick={signInUsingGoogle}
+            className='bg-indigo-600 hover:bg-blue-700 text-white font-light py-2 px-6 rounded focus:outline-none focus:shadow-outline'
+          >
+            Login with Google
+          </button>
+        </div>
 
-      <button onClick={signInUsingGoogle} className='bg-gray-500  p-5'>
-        Sign In Usign Goolegle
-      </button>
+        <div className='w-1/2'>
+          <form onSubmit={handleLogIn}>
+            <div className='mb-4'>
+              <label class='block text-md font-light mb-2' for='password'>
+                Enter Your E-mail
+              </label>
+              <input
+                className='w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline form-control'
+                type='email'
+                onChange={handleEmailChange}
+              />
+            </div>
+            <div className='mb-4'>
+              <label class='block text-md font-light mb-2' for='password'>
+                Enter Password
+              </label>
+              <input
+                className='w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline form-control'
+                type='password'
+                onChange={handlePasswordChange}
+              />
+            </div>
 
-      <br />
-      <br />
-      <br />
-      <form onSubmit={handleLogIn}>
-        <h1 className='text-3xl'>
-          {' '}
-          Enter Your E-mail{' '}
-          <input
-            className='border-2 form-control'
-            type='email'
-            onChange={handleEmailChange}
-          />
-        </h1>
-        <h1 className='text-3xl'>
-          {' '}
-          Enter Your Password{' '}
-          <input
-            className='border-2 form-control'
-            type='password'
-            onChange={handlePasswordChange}
-          />
-        </h1>
-        <button type='submit'>Log In</button>
-      </form>
-
-      <p>
-        Don't Have Account <Link to='/signup'> Create A New Account </Link>
-      </p>
-    </div>
+            <button
+              className='bg-indigo-600 hover:bg-blue-700 text-white font-light py-2 px-6 rounded focus:outline-none focus:shadow-outline'
+              type='submit'
+            >
+              Log In
+            </button>
+          </form>
+          <div className='text-red-600'>{error && error}</div>
+        </div>
+      </div>
+      <div>
+        <p className='mb-8 text-sm text-center'>
+          Don't Have Account ?          <Link
+            className=' w-full mb-8 text-sm font-bold text-center text-blue-600 hover:text-blue-700'
+            to='/signup'
+          >
+            Create A New Account
+          </Link>
+        </p>
+      </div>
+    </>
   );
 };
 

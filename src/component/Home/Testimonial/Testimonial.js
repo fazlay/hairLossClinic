@@ -13,7 +13,7 @@ const Testimonial = () => {
         </h1>
         <div className='flex items-center gap-4'>
           <div className='rounded-full w-12 h-12 bg-black overflow-hidden'>
-            <img src='https://images.unsplash.com/photo-1594819043778-2382e859f56f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' />
+            <img alt ="user review" src='https://images.unsplash.com/photo-1594819043778-2382e859f56f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' />
           </div>
           <div className='flex flex-col tracking-wider'>
             <label className='text-gray-600 font-bold text-base'>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Banner.css';
 
 const Banner = () => {
@@ -13,12 +14,9 @@ const Banner = () => {
             restoration, as well as nonsurgical treatments like medication,
             laser therapy, and nutritional supplements.
           </p>
-          <a
-            href='#'
-            className='bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800'
-          >
-            LEARN MORE
-          </a>
+          <Link to="/" className='bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800'
+       > LEARN MORE</Link>
+         
         </div>
       </div>
     </>
