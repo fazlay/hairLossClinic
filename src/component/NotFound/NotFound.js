@@ -3,7 +3,7 @@ import React from 'react';
 const NotFound = () => {
   return (
     <div>
-      <div class=' tracking-widest mt-4'>
+      <div class='text-center py-32'>
         <span class='text-gray-500 text-6xl block'>
           <span>4 0 4</span>
         </span>

@@ -6,7 +6,7 @@ const Header = () => {
   const { user, logOut } = useAuth();
   return (
     <>
-      <div className='flex flex-wrap'>
+      <div className='flex overflow-hidden flex-wrap'>
         <div className='relative mx-auto'>
           {/* <!-- navbar --> */}
           <nav className='flex justify-between bg-gray-900 text-white w-screen'>
