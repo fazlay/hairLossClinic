@@ -8,7 +8,7 @@ const Banner = () => {
       <div className='bg-cover bg-center  h-auto text-dark py-24 px-10 object-fill fillBack'>
         <div className='md:w-1/2'>
           <p className='text-3xl font-bold pb-3'>Hair Restoration Solutions</p>
-          <p className='text-xl mb-10 leading-none'>
+          <p className='text-xl mb-10 font-light'>
             Learn about your hair loss options, from FUE and FUT transplant
             procedures, scalp injections (ACell, and PRP), eyebrow and beard
             restoration, as well as nonsurgical treatments like medication,

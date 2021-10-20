@@ -22,8 +22,8 @@ const LogIn = () => {
   };
   return (
     <>
-      <div className='container p-10 grid grid-cols-2 '>
-        <div className='text-center'>
+      <div className='p-10 grid grid-cols-1 md:grid-cols-2'>
+        <div className='text-center py-10'>
           <button
             onClick={signInUsingGoogle}
             className='bg-indigo-600 hover:bg-blue-700 text-white font-light py-2 px-6 rounded focus:outline-none focus:shadow-outline'
@@ -32,7 +32,7 @@ const LogIn = () => {
           </button>
         </div>
 
-        <div className='w-1/2'>
+        <div className='w-full md:w-1/2'>
           <form onSubmit={handleLogIn}>
             <div className='mb-4'>
               <label class='block text-md font-light mb-2' for='password'>

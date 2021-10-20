@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <div className='bg-gray-100 pt-2 '>
         <div
-          className='flex pb-5 px-3 mx-auto pt-5 border-t text-gray-800 text-sm 
+          className='hidden md:flex pb-5 px-3 mx-auto pt-5 border-t text-gray-800 text-sm 
       md:flex-row max-w-6xl'
         >
           <h1 className='mt-2 block mx-20 text-center text-xl font-semibold'>

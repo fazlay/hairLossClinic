@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className=' mx-auto w-1/2'>
+    <div className=' mx-auto md:w-1/2 w-full'>
       <h3 class='text-3xl text-red-600 font-extrabold text-center pt-10 '>
         CAN'T CHOOSE THE APPROPRIATE TREATMENT ??
       </h3>
