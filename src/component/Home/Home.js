@@ -17,7 +17,7 @@ const Home = () => {
       </h1>
       <Testimonial></Testimonial>
       <h1 className='text-center text-3xl font-bold py-5'> Image Gallery</h1>
-      <div className='sm:container py-5'>
+      <div className=' py-5'>
         <Slider></Slider>
       </div>
     </>

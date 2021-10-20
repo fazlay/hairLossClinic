@@ -14,7 +14,7 @@ const Header = () => {
               <Link to='/'>
                 <img
                   className='h-9'
-                  src='https://e7.pngegg.com/pngimages/799/970/png-clipart-pattern-hair-loss-%E3%81%84%E3%82%89%E3%81%99%E3%81%A8%E3%82%84-management-of-hair-loss-middle-hair-style-child-face-thumbnail.png'
+                  src='https://e7.pngegg.com/pngimages/23/757/png-clipart-hair-follicle-hair-transplantation-surgery-hair-loss-hair-cosmetics-people-thumbnail.png'
                   alt=''
                 />
               </Link>
